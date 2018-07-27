@@ -7,57 +7,41 @@ package org.Clases;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import org.dataTypes.dtCliente;
 import org.dataTypes.dtDireccion;
-import org.dataTypes.dtGimnasios;
-import org.dataTypes.dtProfesor;
-import org.dataTypes.dtRutina;
 
+/**
+ *
+ * @author diego
+ */
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Profesor extends Usuario implements Serializable {
+public class Usuario implements Serializable {
+    
+    @Id
+    int id;
+    String nombre;
+    String apellido;
+    String telefono;
+    dtDireccion dtDir;
+    int edad;
+    String sexo;
+    Date fechaNac;
 
-  
-
-    List<dtCliente> clientes;
-    List<dtRutina> rutinas;
-
-    public Profesor() {
+    public Usuario() {
     }
 
-    public Profesor(List<dtCliente> clientes, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
-        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
-        this.clientes = null;
-        this.rutinas = null;
-    }
-
-    public List<dtCliente> getClientes() {
-        return clientes;
-    }
-
-    public void setClientes(List<dtCliente> clientes) {
-        this.clientes = clientes;
-    }
-
-    public List<dtRutina> getRutinas() {
-        return rutinas;
-    }
-
-    public void setRutinas(List<dtRutina> rutinas) {
-        this.rutinas = rutinas;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Usuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.dtDir = dtDir;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.fechaNac = fechaNac;
     }
 
     public String getNombre() {
@@ -116,6 +100,33 @@ public class Profesor extends Usuario implements Serializable {
         this.fechaNac = fechaNac;
     }
 
-   
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + this.id;
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
+    
+    
 }

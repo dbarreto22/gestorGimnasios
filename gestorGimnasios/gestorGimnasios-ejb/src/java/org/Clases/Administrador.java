@@ -9,14 +9,14 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtDireccion;
 import org.dataTypes.dtGimnasios;
 import org.dataTypes.dtAdministador;
-import static org.hibernate.type.TypeFactory.serializable;
+
 
 /**
  *
