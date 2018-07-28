@@ -26,7 +26,7 @@ public class RutinaGenerica extends Rutina implements Serializable {
     List<dtGimnasios> gimnasios;
 
     public RutinaGenerica(List<dtGimnasios> gimnasios) {
-        this.gimnasios = gimnasios;
+        this.gimnasios = null;
     }
 
     public RutinaGenerica(dtRutina rutina) {

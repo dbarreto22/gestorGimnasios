@@ -7,6 +7,7 @@ package org.Clases;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,13 +21,19 @@ import org.dataTypes.dtServicios;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Servicios implements Serializable {
 
-    @Id
-    int id;
+    @Id @GeneratedValue
+    Long id;
     String nombre;
     String descripcion;
     int duracion;
 
     public Servicios() {
+    }
+
+    public Servicios(String nombre, String descripcion, int duracion) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
     }
 
     public Servicios(dtServicios dtServicio) {
@@ -62,10 +69,11 @@ public class Servicios implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + this.id;
+        int hash = 5;
+        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
+
 
     @Override
     public boolean equals(Object obj) {

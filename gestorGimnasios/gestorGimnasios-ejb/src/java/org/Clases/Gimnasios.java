@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package org.Clases;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtAdministador;
 import org.dataTypes.dtDireccion;
 import org.dataTypes.dtGimnasios;
@@ -12,8 +18,11 @@ import org.dataTypes.dtGimnasios;
  *
  * @author diego
  */
-public class Gimnasios {
+@Entity
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Gimnasios implements Serializable{
     
+    @Id @GeneratedValue
     int id;
     String nombre;
     dtDireccion dtDir;

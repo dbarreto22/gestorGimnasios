@@ -8,6 +8,7 @@ package org.Clases;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,8 +23,8 @@ import org.dataTypes.dtRutina;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Rutina implements Serializable {
 
-    @Id
-    int id;
+    @Id @GeneratedValue
+    Long id;
     String nombre;
     String descripcion;
     int repeticiones;
@@ -33,6 +34,17 @@ public class Rutina implements Serializable {
 
     public Rutina() {
     }
+
+    public Rutina(String nombre, String descripcion, int repeticiones, int duracion, int descanso, List<dtMovimientos> movimientos) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.repeticiones = repeticiones;
+        this.duracion = duracion;
+        this.descanso = descanso;
+        this.movimientos = null;
+    }
+    
+    
 
     public Rutina(dtRutina dtRutina) {
         this.nombre = dtRutina.getNombre();
@@ -94,9 +106,11 @@ public class Rutina implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 17 * hash + this.id;
+        hash = 53 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
+
+
 
     @Override
     public boolean equals(Object obj) {

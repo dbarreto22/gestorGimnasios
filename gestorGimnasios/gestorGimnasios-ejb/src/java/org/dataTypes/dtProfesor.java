@@ -6,19 +6,15 @@
 package org.dataTypes;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author diego
  */
-public class dtProfesor {
+public class dtProfesor extends dtUsuario{
     
-    String nombre;
-    String apellido;
-    dtDireccion dtDir;
-    String telefono;
-    int edad;
     List<dtGimnasios> gimnasios;
     List<dtCliente> clientes;
     List<dtRutina> rutinas;
@@ -26,57 +22,11 @@ public class dtProfesor {
     public dtProfesor() {
     }
 
-    public dtProfesor(String nombre, String apellido, dtDireccion dtDir, String telefono, int edad) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dtDir = dtDir;
-        this.telefono = telefono;
-        this.edad = edad;
-        this.gimnasios = new ArrayList<dtGimnasios>();
-        this.clientes = new ArrayList<dtCliente>();
-        this.rutinas = new ArrayList<dtRutina>();
-    }
-    
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-    
-    
-
-    public dtDireccion getDtDir() {
-        return dtDir;
-    }
-
-    public void setDtDir(dtDireccion dtDir) {
-        this.dtDir = dtDir;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public dtProfesor(List<dtGimnasios> gimnasios, List<dtCliente> clientes, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
+        this.gimnasios = null;
+        this.clientes = null;
+        this.rutinas = null;
     }
 
     public List<dtGimnasios> getGimnasios() {
@@ -102,6 +52,8 @@ public class dtProfesor {
     public void setRutinas(List<dtRutina> rutinas) {
         this.rutinas = rutinas;
     }
+
+    
     
     
 }

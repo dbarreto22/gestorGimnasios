@@ -5,21 +5,19 @@
  */
 package org.dataTypes;
 
+import java.util.Date;
 import java.util.List;
+
 
 /**
  *
  * @author diego
  */
-public class dtCliente {
+public class dtCliente extends dtUsuario{
     
-    String nombre;
-    String apellido;
-    dtDireccion dtDir;
-    String telefono;
-    int edad;
     float peso;
     float altura;
+
     List<dtGimnasios> gimnasios;
     dtProfesor dtProfe;
     List<dtRutina> rutinas;
@@ -27,57 +25,13 @@ public class dtCliente {
     public dtCliente() {
     }
 
-    public dtCliente(String nombre, dtDireccion dtDir, String telefono, int edad, float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas) {
-        this.nombre = nombre;
-        this.dtDir = dtDir;
-        this.telefono = telefono;
-        this.edad = edad;
+    public dtCliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
         this.peso = peso;
         this.altura = altura;
-        this.gimnasios = gimnasios;
-        this.dtProfe = dtProfe;
-        this.rutinas = rutinas;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-    
-
-    public dtDireccion getDtDir() {
-        return dtDir;
-    }
-
-    public void setDtDir(dtDireccion dtDir) {
-        this.dtDir = dtDir;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
+        this.gimnasios = null;
+        this.dtProfe = null;
+        this.rutinas = null;
     }
 
     public float getPeso() {
@@ -119,7 +73,5 @@ public class dtCliente {
     public void setRutinas(List<dtRutina> rutinas) {
         this.rutinas = rutinas;
     }
-    
-    
-    
+   
 }

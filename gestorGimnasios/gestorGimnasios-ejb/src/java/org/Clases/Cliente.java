@@ -9,12 +9,10 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import org.dataTypes.dtCliente;
 import org.dataTypes.dtDireccion;
 import org.dataTypes.dtGimnasios;
 import org.dataTypes.dtProfesor;
@@ -49,8 +47,45 @@ public class Cliente extends Usuario implements Serializable {
         this.rutinas = rutinas;
     }
     
-    
-    
-    
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    public List<dtGimnasios> getGimnasios() {
+        return gimnasios;
+    }
+
+    public void setGimnasios(List<dtGimnasios> gimnasios) {
+        this.gimnasios = gimnasios;
+    }
+
+    public dtProfesor getDtProfe() {
+        return dtProfe;
+    }
+
+    public void setDtProfe(dtProfesor dtProfe) {
+        this.dtProfe = dtProfe;
+    }
+
+    public List<dtRutina> getRutinas() {
+        return rutinas;
+    }
+
+    public void setRutinas(List<dtRutina> rutinas) {
+        this.rutinas = rutinas;
+    }
+
     
 }

@@ -8,15 +8,15 @@ package org.Clases;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.validation.constraints.NotNull;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtDireccion;
 import org.dataTypes.dtGimnasios;
 import org.dataTypes.dtAdministador;
-
 
 /**
  *
@@ -25,18 +25,31 @@ import org.dataTypes.dtAdministador;
 @Entity
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Administrador implements Serializable {
-   
+
     @Id
-    int id;
+    @GeneratedValue
+    Long id;
+
+    @NotNull
     String nombre;
     String apellido;
+    String empresa;
+
     dtDireccion dtDir;
     String telefono;
-    String empresa;
 
     List<dtGimnasios> gimnasios;
 
     public Administrador() {
+    }
+
+    public Administrador(String nombre, String apellido, dtDireccion dtDir, String telefono, String empresa, List<dtGimnasios> gimnasios) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dtDir = dtDir;
+        this.telefono = telefono;
+        this.empresa = empresa;
+        this.gimnasios = gimnasios;
     }
 
     public Administrador(dtAdministador dtAdmin) {
@@ -100,7 +113,7 @@ public class Administrador implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + this.id;
+        hash = 29 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -122,5 +135,4 @@ public class Administrador implements Serializable {
         return true;
     }
 
-    
 }

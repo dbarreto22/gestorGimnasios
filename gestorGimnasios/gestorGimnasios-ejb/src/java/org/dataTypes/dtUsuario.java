@@ -3,31 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.Clases;
+package org.dataTypes;
 
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import org.dataTypes.dtDireccion;
-import org.dataTypes.dtUsuario;
+import org.Clases.Usuario;
 
 /**
  *
  * @author diego
  */
-@Entity
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Usuario implements Serializable {
-    
-    @Id @GeneratedValue
-    Long id;
-    
-    @NotNull
+public class dtUsuario  {
+
     String nombre;
     String apellido;
     String telefono;
@@ -36,10 +22,10 @@ public class Usuario implements Serializable {
     String sexo;
     Date fechaNac;
 
-    public Usuario() {
+    public dtUsuario() {
     }
 
-    public Usuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+    public dtUsuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -47,16 +33,6 @@ public class Usuario implements Serializable {
         this.edad = edad;
         this.sexo = sexo;
         this.fechaNac = fechaNac;
-    }
-    
-    public Usuario(dtUsuario dtU){
-        this.nombre = dtU.getNombre();
-        this.apellido = dtU.getApellido();
-        this.telefono = dtU.getTelefono();
-        this.dtDir = dtU.getDtDir();
-        this.edad = dtU.getEdad();
-        this.sexo = dtU.getSexo();
-        this.fechaNac = dtU.getFechaNac();
     }
 
     public String getNombre() {
@@ -113,35 +89,6 @@ public class Usuario implements Serializable {
 
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (this.id != other.id) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
-    
+    } 
     
 }

@@ -7,6 +7,7 @@ package org.Clases;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,8 +21,8 @@ import org.dataTypes.dtMovimientos;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movimientos implements Serializable {
 
-    @Id
-    int id;
+    @Id @GeneratedValue
+    Long id;
     String nombre;
     String descripcion;
 
@@ -33,13 +34,6 @@ public class Movimientos implements Serializable {
         this.descripcion = dtMove.getDescripcion();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -60,9 +54,10 @@ public class Movimientos implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.id;
+        hash = 41 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
+    
 
     @Override
     public boolean equals(Object obj) {
