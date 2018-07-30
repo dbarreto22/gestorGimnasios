@@ -10,7 +10,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtDireccion;
@@ -26,8 +25,7 @@ public class Usuario implements Serializable {
     
     @Id @GeneratedValue
     Long id;
-    
-    @NotNull
+
     String nombre;
     String apellido;
     String telefono;
@@ -35,11 +33,12 @@ public class Usuario implements Serializable {
     int edad;
     String sexo;
     Date fechaNac;
+    String email;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+    public Usuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -47,6 +46,7 @@ public class Usuario implements Serializable {
         this.edad = edad;
         this.sexo = sexo;
         this.fechaNac = fechaNac;
+        this.email = email;
     }
     
     public Usuario(dtUsuario dtU){
@@ -57,6 +57,7 @@ public class Usuario implements Serializable {
         this.edad = dtU.getEdad();
         this.sexo = dtU.getSexo();
         this.fechaNac = dtU.getFechaNac();
+        this.email = dtU.getEmail();
     }
 
     public String getNombre() {
@@ -114,6 +115,16 @@ public class Usuario implements Serializable {
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 
     @Override
     public int hashCode() {

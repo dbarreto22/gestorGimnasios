@@ -8,6 +8,7 @@ package org.EJB;
 import java.beans.*;
 import java.io.Serializable;
 import javax.ejb.Local;
+import org.Clases.Usuario;
 
 /**
  *
@@ -15,6 +16,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface usrLocal  {
+    
+    Usuario crearUsuario(Usuario usr);
     
 
 

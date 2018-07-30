@@ -6,11 +6,15 @@
 package org.Clases;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import org.dataTypes.dtGimnasios;
 import org.dataTypes.dtServicios;
 
 /**
@@ -26,6 +30,8 @@ public class Servicios implements Serializable {
     String nombre;
     String descripcion;
     int duracion;
+    @ManyToMany(fetch = FetchType.LAZY)
+    List<dtGimnasios> gimnasios;
 
     public Servicios() {
     }
@@ -70,10 +76,9 @@ public class Servicios implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 79 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 67 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -87,10 +92,12 @@ public class Servicios implements Serializable {
             return false;
         }
         final Servicios other = (Servicios) obj;
-        if (this.id != other.id) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
+
+
 
 }

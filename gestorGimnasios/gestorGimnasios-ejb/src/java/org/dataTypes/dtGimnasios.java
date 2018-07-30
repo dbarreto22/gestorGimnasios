@@ -4,29 +4,32 @@
  * and open the template in the editor.
  */
 package org.dataTypes;
+
+import java.util.List;
 import org.dataTypes.dtAdministador;
+
 /**
  *
  * @author diego
  */
 public class dtGimnasios {
-    
+
     String nombre;
     dtDireccion dtDir;
     String telefono;
     dtAdministador dtAdmin;
+    List<dtServicios> servicios;
 
     public dtGimnasios() {
     }
 
-    public dtGimnasios(String nombre, dtDireccion dtDir, String telefono, dtAdministador dtAdmin) {
+    public dtGimnasios(String nombre, dtDireccion dtDir, String telefono, dtAdministador dtAdmin, List<dtServicios> servicios) {
         this.nombre = nombre;
         this.dtDir = dtDir;
         this.telefono = telefono;
         this.dtAdmin = dtAdmin;
+        this.servicios = null;
     }
-    
-    
 
     public String getNombre() {
         return nombre;
@@ -59,6 +62,13 @@ public class dtGimnasios {
     public void setDtAdmin(dtAdministador dtAdmin) {
         this.dtAdmin = dtAdmin;
     }
-    
-    
+
+    public List<dtServicios> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<dtServicios> servicios) {
+        this.servicios = servicios;
+    }
+
 }

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtMovimientos;
+import org.dataTypes.dtProfesor;
 import org.dataTypes.dtRutina;
 
 /**

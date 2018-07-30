@@ -9,14 +9,17 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtDireccion;
 import org.dataTypes.dtGimnasios;
 import org.dataTypes.dtProfesor;
 import org.dataTypes.dtRutina;
+import org.dataTypes.dtUsuario;
 
 /**
  *
@@ -28,24 +31,35 @@ public class Cliente extends Usuario implements Serializable {
 
     float peso;
     float altura;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     List<dtGimnasios> gimnasios;
-    @ManyToOne
+    @OneToMany(fetch = FetchType.LAZY)
     dtProfesor dtProfe;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     List<dtRutina> rutinas;
 
     public Cliente() {
     }
 
-    public Cliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
-        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
+    public Cliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac, String email) {
+        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac, email);
         this.peso = peso;
         this.altura = altura;
         this.gimnasios = gimnasios;
         this.dtProfe = dtProfe;
         this.rutinas = rutinas;
     }
+
+    public Cliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, dtUsuario dtU) {
+        super(dtU);
+        this.peso = peso;
+        this.altura = altura;
+        this.gimnasios = gimnasios;
+        this.dtProfe = dtProfe;
+        this.rutinas = rutinas;
+    }
+
+
     
     public float getPeso() {
         return peso;

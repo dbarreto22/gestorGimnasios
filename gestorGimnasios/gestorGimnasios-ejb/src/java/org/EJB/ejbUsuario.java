@@ -13,6 +13,8 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.Clases.Usuario;
+import org.dataTypes.dtUsuario;
 
 
 /**
@@ -31,9 +33,13 @@ public class ejbUsuario implements usrLocal, usrRemote, usrSOAP {
     
     private PropertyChangeSupport propertySupport;
     
-    @PersistenceContext
+    @PersistenceContext(unitName = "gestorGimnasios-ejbPU")
     private EntityManager em;
     
+    public Usuario crearUsuario(Usuario usr){
+        em.persist(usr);
+        return usr;
+    }
     
     public ejbUsuario() {
         propertySupport = new PropertyChangeSupport(this);

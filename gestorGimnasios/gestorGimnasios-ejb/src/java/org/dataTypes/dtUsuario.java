@@ -21,11 +21,12 @@ public class dtUsuario  {
     int edad;
     String sexo;
     Date fechaNac;
+    String email;
 
     public dtUsuario() {
     }
 
-    public dtUsuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
+    public dtUsuario(String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac,String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -33,6 +34,7 @@ public class dtUsuario  {
         this.edad = edad;
         this.sexo = sexo;
         this.fechaNac = fechaNac;
+        this.email = email;
     }
 
     public String getNombre() {
@@ -90,5 +92,15 @@ public class dtUsuario  {
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     } 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
     
 }

@@ -22,12 +22,13 @@ public class dtProfesor extends dtUsuario{
     public dtProfesor() {
     }
 
-    public dtProfesor(List<dtGimnasios> gimnasios, List<dtCliente> clientes, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
-        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
-        this.gimnasios = null;
-        this.clientes = null;
-        this.rutinas = null;
+    public dtProfesor(List<dtGimnasios> gimnasios, List<dtCliente> clientes, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac, String email) {
+        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac, email);
+        this.gimnasios = gimnasios;
+        this.clientes = clientes;
+        this.rutinas = rutinas;
     }
+
 
     public List<dtGimnasios> getGimnasios() {
         return gimnasios;

@@ -8,10 +8,10 @@ package org.Clases;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import org.dataTypes.dtDireccion;
@@ -26,18 +26,18 @@ import org.dataTypes.dtAdministador;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Administrador implements Serializable {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     Long id;
 
-    @NotNull
+   
     String nombre;
     String apellido;
     String empresa;
 
     dtDireccion dtDir;
     String telefono;
-
+    
+    @ManyToOne(fetch = FetchType.LAZY)
     List<dtGimnasios> gimnasios;
 
     public Administrador() {

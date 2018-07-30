@@ -25,14 +25,15 @@ public class dtCliente extends dtUsuario{
     public dtCliente() {
     }
 
-    public dtCliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac) {
-        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac);
+    public dtCliente(float peso, float altura, List<dtGimnasios> gimnasios, dtProfesor dtProfe, List<dtRutina> rutinas, String nombre, String apellido, String telefono, dtDireccion dtDir, int edad, String sexo, Date fechaNac, String email) {
+        super(nombre, apellido, telefono, dtDir, edad, sexo, fechaNac, email);
         this.peso = peso;
         this.altura = altura;
-        this.gimnasios = null;
-        this.dtProfe = null;
-        this.rutinas = null;
+        this.gimnasios = gimnasios;
+        this.dtProfe = dtProfe;
+        this.rutinas = rutinas;
     }
+    
 
     public float getPeso() {
         return peso;
